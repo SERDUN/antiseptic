@@ -19,6 +19,8 @@ Plans:
 - create simple ui - pending
 - create base flutter project  - done 
 - create feedback page - in progress
+- feedback page add validation - in progress
+
 - created bloc state for feedbac - pending
 - adde use case for feedbac - pending
 - create and config firebase project  - in pending
