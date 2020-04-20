@@ -7,6 +7,10 @@ class WelcomeScreen extends StatelessWidget {
     Navigator.pushNamed(context, RoutesPath.ANTISEPTIC_LIST);
   }
 
+  void _openFeedbackPage(BuildContext context) {
+    Navigator.pushNamed(context, RoutesPath.FEEDBACK);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +69,7 @@ class WelcomeScreen extends StatelessWidget {
                     child: RaisedButton(
                         textColor: Colors.white,
                         child: Text("Fedback"),
-                        onPressed: () => _openAntisepticsList(context))),
+                        onPressed: () => _openFeedbackPage(context))),
               ],
             ),
             Expanded(
