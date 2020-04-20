@@ -11,3 +11,13 @@ Features:
 - request for custom antiseptic  (In progress)
 - stars (In progress)
 - comments (In progress)
+
+
+
+Plans:
+
+- create simple ui - done
+- create base flutter project  - done 
+- create rest endpoints (Firebase - remote functions) - in progress
+- create repository and use case - pending
+- ...
