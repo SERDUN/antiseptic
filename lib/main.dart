@@ -1,6 +1,7 @@
+import 'package:antisepticks/navigation/routest_const.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/antiseptic_list/antiseptic_list_page.dart';
+import 'navigation/route_generator.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
               TextStyle(fontSize: 14.0, color: Colors.grey.withOpacity(0.7)),
         ),
       ),
-      home: AntisepticList(),
+      initialRoute: RoutesPath.WELCOME_PAGE,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

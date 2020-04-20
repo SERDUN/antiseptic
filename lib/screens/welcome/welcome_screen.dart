@@ -1,7 +1,12 @@
+import 'package:antisepticks/navigation/routest_const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  void _openAntisepticsList(BuildContext context) {
+    Navigator.pushNamed(context, RoutesPath.ANTISEPTIC_LIST);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +41,9 @@ class WelcomeScreen extends StatelessWidget {
                 child: RaisedButton(
                   textColor: Colors.white,
                   child: Text("Antiseptics"),
-                  onPressed: () {},
+                  onPressed: () {
+                    _openAntisepticsList(context);
+                  },
                 )),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,10 +63,9 @@ class WelcomeScreen extends StatelessWidget {
                 ButtonTheme(
                     minWidth: 142,
                     child: RaisedButton(
-                      textColor: Colors.white,
-                      child: Text("Fedback"),
-                      onPressed: () {},
-                    )),
+                        textColor: Colors.white,
+                        child: Text("Fedback"),
+                        onPressed: () => _openAntisepticsList(context))),
               ],
             ),
             Expanded(
