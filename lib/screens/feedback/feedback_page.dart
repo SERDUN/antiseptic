@@ -1,5 +1,7 @@
+import 'package:antisepticks/blocs/feedback/feedback_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FeedbackPage extends StatefulWidget {
   @override
@@ -28,9 +30,19 @@ class _FeedbackPageState extends State<FeedbackPage> {
           "Feedback",
         ),
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
+      body: BlocBuilder<FeedbackBloc, FeedbackState>(
+        bloc: BlocProvider.of(context),
+        builder: (ctx, state) {
+          return buildDefaultWidget();
+        },
+      ),
+    );
+  }
+
+  Container buildDefaultWidget() {
+    return Container(
+      child: Column(
+        children: <Widget>[
 //            Container(
 //              width: double.infinity,
 //              child: Text(
@@ -38,17 +50,16 @@ class _FeedbackPageState extends State<FeedbackPage> {
 //                textAlign: TextAlign.start,
 //              ),
 //            ),
-            buildPopupMenuButton(),
-            Container(
-              margin: EdgeInsets.only(left: 16, right: 16),
-              child: TextFormField(
-                decoration: InputDecoration(labelText: "Your feedback"),
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-              ),
-            )
-          ],
-        ),
+          buildPopupMenuButton(),
+          Container(
+            margin: EdgeInsets.only(left: 16, right: 16),
+            child: TextFormField(
+              decoration: InputDecoration(labelText: "Your feedback"),
+              keyboardType: TextInputType.multiline,
+              maxLines: null,
+            ),
+          )
+        ],
       ),
     );
   }
