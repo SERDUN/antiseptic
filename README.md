@@ -1,2 +1,12 @@
 # antiseptic
-Application for keep list antiseptic. - calculate proportion for container - update list antiseptic - offline mode - feedback  - request for custom antiseptic  - stars - comments
+Application for keep list antiseptic. 
+
+
+Features:
+- calculate proportion for container (In progress)
+- update list antiseptic (In progress)
+- offline mode (In progress)
+- feedback (In progress)
+- request for custom antiseptic  (In progress)
+- stars (In progress)
+- comments (In progress)
