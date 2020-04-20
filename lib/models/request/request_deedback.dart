@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class FeedbackModel {
   static const String BUG = "bug_type";
   static const String IMPROVEMENT = "improvement_type";
@@ -5,5 +7,5 @@ class FeedbackModel {
   final String message;
   final String type;
 
-  FeedbackModel(this.message, this.type);
+  FeedbackModel({@required this.message, @required this.type});
 }

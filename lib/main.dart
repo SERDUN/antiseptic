@@ -1,9 +1,14 @@
 import 'package:antisepticks/navigation/routest_const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'navigation/route_generator.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  BlocSupervisor.delegate = BlocDelegate();
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
