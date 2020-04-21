@@ -1,7 +1,7 @@
-import 'package:antisepticks/models/request/request_deedback.dart';
+import 'package:antisepticks/features/feedback/data/models/request_deedback.dart';
 import 'package:flutter/widgets.dart';
 
-import 'api_client.dart';
+import '../datasource/api_client.dart';
 
 class CommonRepository {
   final ApiClient api;

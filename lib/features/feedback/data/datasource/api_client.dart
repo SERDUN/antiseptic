@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:antisepticks/models/request/request_deedback.dart';
+import 'package:antisepticks/core/configs/consts.dart';
+import 'package:antisepticks/features/feedback/data/models/request_deedback.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart';
 
-import '../consts.dart';
-import 'dto/feedback_response.dart';
+import '../models/feedback_response.dart';
 
 class ApiClient {
   final Client httpClient;
