@@ -23,11 +23,9 @@ class FeedbackBloc extends Bloc<FeedbackEvent, FeedbackState> {
   Stream<FeedbackState> mapEventToState(FeedbackEvent event) async* {
     if (event is PostFeedback) {
       yield PostingState();
-
       try {
-        final ResponseWrapper response = await commonRepository.getWeather(
-            FeedbackModel(message: "My feedback", type: "bug_type"));
-
+        final ResponseWrapper response =
+            await commonRepository.postFeedback(event.feedbackModel);
         yield PostedState();
       } catch (e) {
         yield PostErrorState();

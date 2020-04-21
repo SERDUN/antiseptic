@@ -18,17 +18,17 @@ class ApiClient {
       return null;
     }
 
-    var queryParameters = {
+    var body = {
       'message': feedback.message,
       'type': feedback.type,
     };
 
-    var uri = Uri.https(Constants.BASE_URL_DOMAIN,
-        Constants.ENDPOINT_ADD_FEEDBACK, queryParameters);
+    var uri =
+        Uri.https(Constants.BASE_URL_DOMAIN, Constants.ENDPOINT_ADD_FEEDBACK);
 
     log('request: ${uri.toString()}');
 
-    var response = await httpClient.get(uri);
+    var response = await httpClient.post(uri, body: body);
 
     log('response: ${response?.body}');
 

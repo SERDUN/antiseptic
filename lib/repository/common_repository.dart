@@ -6,7 +6,7 @@ import 'api_client.dart';
 class CommonRepository {
   final ApiClient api;
   CommonRepository({@required this.api}) : assert(api != null);
-  Future<ResponseWrapper> getWeather(FeedbackModel feedback) async {
+  Future<ResponseWrapper> postFeedback(FeedbackModel feedback) async {
     return await api.sendFeedback(feedback);
   }
 }
