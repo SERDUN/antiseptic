@@ -12,11 +12,37 @@ class FeedbackPage extends StatefulWidget {
 
 class _FeedbackPageState extends State<FeedbackPage> {
   String _selection;
+  final _formKey = GlobalKey<FormState>();
+  final _textController = TextEditingController();
+  var isEnabledAutoValidation = false;
 
   void _sendFeedback() {
-    BlocProvider.of<FeedbackBloc>(context).add(PostFeedback(
-        feedbackModel: FeedbackModel(
-            message: "Test flutter feedback ", type: "BUG WTF"))); // добавл
+    if (_formKey.currentState.validate()) {
+      BlocProvider.of<FeedbackBloc>(context).add(PostFeedback(
+          feedbackModel: FeedbackModel(
+              message: "Test flutter feedback ", type: "BUG WTF"))); // добавл}
+    }
+  }
+
+  @override
+  void initState() {
+    _textController.addListener(() {
+      checkValidationFields();
+    });
+    super.initState();
+  }
+
+  void checkValidationFields() {
+    if (!isEnabledAutoValidation && _textController.text.isNotEmpty)
+      setState(() {
+        isEnabledAutoValidation = true;
+      });
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    super.dispose();
   }
 
   @override
@@ -105,12 +131,24 @@ class _FeedbackPageState extends State<FeedbackPage> {
       child: Column(
         children: <Widget>[
           buildPopupMenuButton(),
-          Container(
-            margin: EdgeInsets.only(left: 16, right: 16),
-            child: TextFormField(
-              decoration: InputDecoration(labelText: "Your feedback"),
-              keyboardType: TextInputType.multiline,
-              maxLines: null,
+          Form(
+            key: _formKey,
+            child: Container(
+              margin: EdgeInsets.only(left: 16, right: 16),
+              child: TextFormField(
+                controller: _textController,
+                maxLength: 244,
+                decoration: InputDecoration(labelText: "Your feedback"),
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                autovalidate: isEnabledAutoValidation,
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
+              ),
             ),
           )
         ],
