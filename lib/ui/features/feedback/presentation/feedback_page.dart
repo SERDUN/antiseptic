@@ -1,5 +1,5 @@
-import 'package:antisepticks/features/feedback/data/models/request_deedback.dart';
-import 'package:antisepticks/features/feedback/presentation/bloc/feedback_bloc.dart';
+import 'package:antisepticks/ui/features/feedback/data/models/request_deedback.dart';
+import 'package:antisepticks/ui/features/feedback/presentation/bloc/feedback_bloc.dart';
 import 'package:antisepticks/ui/widgets/progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

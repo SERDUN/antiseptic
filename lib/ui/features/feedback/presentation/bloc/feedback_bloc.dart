@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:antisepticks/features/feedback/data/datasource/api_client.dart';
-import 'package:antisepticks/features/feedback/data/models/request_deedback.dart';
-import 'package:antisepticks/features/feedback/data/repository/common_repository.dart';
+import 'package:antisepticks/ui/features/feedback/data/datasource/api_client.dart';
+import 'package:antisepticks/ui/features/feedback/data/models/request_deedback.dart';
+import 'package:antisepticks/ui/features/feedback/data/repository/common_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
