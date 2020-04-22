@@ -10,15 +10,15 @@ class FeedbackPage extends StatefulWidget {
 }
 
 class _FeedbackPageState extends State<FeedbackPage> {
-  String _selection;
   final _formKey = GlobalKey<FormState>();
   final _textController = TextEditingController();
-  var isEnabledAutoValidation = false;
+  String _selection;
+  bool _isEnabledAutoValidation = false;
 
   void _sendFeedback() {
     if (_formKey.currentState.validate()) {
       BlocProvider.of<FeedbackBloc>(context).add(PostFeedbackEvent(
-          message: "Test flutter feedback ", type: "BUG WTF")); // добавл}
+          message: _textController.text, type: "BUG WTF")); // добавл}
     }
   }
 
@@ -31,9 +31,9 @@ class _FeedbackPageState extends State<FeedbackPage> {
   }
 
   void checkValidationFields() {
-    if (!isEnabledAutoValidation && _textController.text.isNotEmpty)
+    if (!_isEnabledAutoValidation && _textController.text.isNotEmpty)
       setState(() {
-        isEnabledAutoValidation = true;
+        _isEnabledAutoValidation = true;
       });
   }
 
@@ -139,7 +139,7 @@ class _FeedbackPageState extends State<FeedbackPage> {
                 decoration: InputDecoration(labelText: "Your feedback"),
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
-                autovalidate: isEnabledAutoValidation,
+                autovalidate: _isEnabledAutoValidation,
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Please enter some text';
