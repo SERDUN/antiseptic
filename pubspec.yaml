@@ -6,17 +6,21 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.1.0 <3.0.0"
 
+
+
 dependencies:
   flutter:
     sdk: flutter
 
   sqflite: ^1.3.0
-  path_provider: ^1.6.5
-  path: ^1.6.4
-  cupertino_icons: ^0.1.2
+  path_provider: ^1.6.7
+  path: ^1.6.4 #not update, conflict with another dependency
+  cupertino_icons: ^0.1.3
   http: ^0.12.0+4
-  flutter_bloc: ^3.2.0
+  flutter_bloc: ^4.0.0
   equatable: ^1.1.1
+  data_connection_checker: ^0.3.4
+
 
 
 dev_dependencies:
