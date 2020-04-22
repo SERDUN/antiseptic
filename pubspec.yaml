@@ -16,10 +16,11 @@ dependencies:
   path_provider: ^1.6.7
   path: ^1.6.4 #not update, conflict with another dependency
   cupertino_icons: ^0.1.3
-  http: ^0.12.0+4
+  dio: ^3.0.9
   flutter_bloc: ^4.0.0
   equatable: ^1.1.1
   data_connection_checker: ^0.3.4
+  get_it: ^4.0.1
 
 
 

@@ -1,9 +1,9 @@
-class FeedbackResponse {
+class StatusResponse {
   String status;
 
-  static FeedbackResponse fromMap(Map<String, dynamic> map) {
+  static StatusResponse fromMap(Map<String, dynamic> map) {
     if (map == null) return null;
-    FeedbackResponse forecastResponseBean = FeedbackResponse();
+    StatusResponse forecastResponseBean = StatusResponse();
     forecastResponseBean.status = map['result'].toString();
     return forecastResponseBean;
   }

@@ -1,4 +1,3 @@
-import 'package:antisepticks/ui/features/feedback/data/models/request_deedback.dart';
 import 'package:antisepticks/ui/features/feedback/presentation/bloc/feedback_bloc.dart';
 import 'package:antisepticks/ui/widgets/progress_indicator.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +17,8 @@ class _FeedbackPageState extends State<FeedbackPage> {
 
   void _sendFeedback() {
     if (_formKey.currentState.validate()) {
-      BlocProvider.of<FeedbackBloc>(context).add(PostFeedback(
-          feedbackModel: FeedbackModel(
-              message: "Test flutter feedback ", type: "BUG WTF"))); // добавл}
+      BlocProvider.of<FeedbackBloc>(context).add(PostFeedbackEvent(
+          message: "Test flutter feedback ", type: "BUG WTF")); // добавл}
     }
   }
 

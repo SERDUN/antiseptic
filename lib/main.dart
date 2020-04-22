@@ -2,11 +2,13 @@ import 'package:antisepticks/navigation/routest_const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/configs/injection_container.dart' as di;
 import 'navigation/route_generator.dart';
 
-void main() {
+void main() async {
   BlocSupervisor.delegate = BlocDelegate();
-
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(MyApp());
 }
 

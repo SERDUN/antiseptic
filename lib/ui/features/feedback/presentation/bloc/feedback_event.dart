@@ -5,12 +5,13 @@ abstract class FeedbackEvent extends Equatable {
   const FeedbackEvent();
 }
 
-class PostFeedback extends FeedbackEvent {
-  final FeedbackModel feedbackModel;
+class PostFeedbackEvent extends FeedbackEvent {
+  final String message;
+  final String type;
 
-  const PostFeedback({@required this.feedbackModel})
-      : assert(feedbackModel != null);
+  const PostFeedbackEvent({@required this.message, @required this.type})
+      : assert(message != null && type != null);
 
   @override
-  List<Object> get props => [feedbackModel];
+  List<Object> get props => [message, type];
 }
