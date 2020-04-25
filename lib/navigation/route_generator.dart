@@ -1,5 +1,6 @@
 import 'package:antisepticks/core/configs/injection_container.dart';
 import 'package:antisepticks/navigation/routest_const.dart';
+import 'package:antisepticks/ui/features/add_antiseptic/add_ingredient_dialog.dart';
 import 'package:antisepticks/ui/features/antiseptic_list/antiseptic_list_page.dart';
 import 'package:antisepticks/ui/features/feedback/presentation/bloc/feedback_bloc.dart';
 import 'package:antisepticks/ui/features/feedback/presentation/feedback_page.dart';
@@ -15,6 +16,8 @@ class RouteGenerator {
     switch (settings.name) {
       case RoutesPath.WELCOME_PAGE:
         return MaterialPageRoute(builder: (_) => WelcomeScreen());
+      case RoutesPath.ANTISEPTIC_ADD:
+        return MaterialPageRoute(builder: (_) => AddAntisepticPage());
       case RoutesPath.FEEDBACK:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
