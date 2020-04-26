@@ -1,6 +1,6 @@
 import 'package:antisepticks/core/configs/injection_container.dart';
 import 'package:antisepticks/navigation/routest_const.dart';
-import 'package:antisepticks/ui/features/add_antiseptic/add_ingredient_dialog.dart';
+import 'package:antisepticks/ui/features/add_antiseptic/add_ingredient_page.dart';
 import 'package:antisepticks/ui/features/antiseptic_list/antiseptic_list_page.dart';
 import 'package:antisepticks/ui/features/feedback/presentation/bloc/feedback_bloc.dart';
 import 'package:antisepticks/ui/features/feedback/presentation/feedback_page.dart';

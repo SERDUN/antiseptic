@@ -1,14 +1,20 @@
 import 'dart:ui';
 
+import 'package:antisepticks/ui/style/decorations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class AddIngredientDialog extends StatelessWidget {
-  final Function onResult;
+class DialogAddIngredient extends StatelessWidget {
+  final Function() onFinish;
 
-  const AddIngredientDialog({
+  final TextEditingController ingredientNameController;
+  final TextEditingController ingredientCapacityController;
+
+  const DialogAddIngredient({
     Key key,
-    this.onResult,
+    this.onFinish,
+    @required this.ingredientNameController,
+    @required this.ingredientCapacityController,
   }) : super(key: key);
 
   @override
@@ -16,7 +22,11 @@ class AddIngredientDialog extends StatelessWidget {
     return Container(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaY: 3, sigmaX: 3),
-        child: showDialog(context),
+        child: SingleChildScrollView(
+            child: Container(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: showDialog(context))),
       ),
     );
   }
@@ -38,18 +48,9 @@ class AddIngredientDialog extends StatelessWidget {
             Container(
                 margin: EdgeInsets.only(top: 16, bottom: 16),
                 child: TextField(
-                  decoration: new InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Colors.blueAccent, width: 1.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 1.0),
-                      ),
-                      hintText: 'Please, enter your shor description.',
-                      hintStyle:
-                          TextStyle(color: Colors.blue.withOpacity(0.5))),
-                )),
+                    controller: ingredientNameController,
+                    decoration: CustomDecoration.getDefaultInputDecoration(
+                        hint: "Please, enter your shor description."))),
             Container(
               child: Text(
                 "Сapacity",
@@ -61,32 +62,28 @@ class AddIngredientDialog extends StatelessWidget {
             Container(
                 margin: EdgeInsets.only(top: 16, bottom: 16),
                 child: TextField(
-                  decoration: new InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Colors.blueAccent, width: 1.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 1.0),
-                      ),
-                      hintText: 'What volume does this ingredient occupy.',
-                      hintStyle:
-                          TextStyle(color: Colors.blue.withOpacity(0.5))),
-                )),
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: 48,
-                height: 48,
-                child: Icon(
-                  Icons.check,
-                  size: 20,
-                  color: Colors.blue,
+                    controller: ingredientCapacityController,
+                    decoration: CustomDecoration.getDefaultInputDecoration(
+                        hint: "What volume does this ingredient occupy."))),
+            GestureDetector(
+              child: Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: 48,
+                  height: 48,
+                  child: Icon(
+                    Icons.check,
+                    size: 20,
+                    color: Colors.blue,
+                  ),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.blue.withOpacity(0.1)),
                 ),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.blue.withOpacity(0.1)),
               ),
+              onTap: () {
+                onFinish();
+              },
             ),
             SizedBox(
               height: 16,
